@@ -3,7 +3,7 @@
 ## 💕Objetivo:
 Criar conexão com banco de dados e reralizar operações básica (CRUD)
 
-###🚀 Tecnologias:
+### 🚀Tecnologias:
  - ORM : SQLAlchemy
  - Banco de Dados : SQLite 
 
