@@ -3,10 +3,12 @@ from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Criando banco de dados 
-MEU_BANCO = create_engine("sqlite:///meubanco.db")
+# 
+# 
+BANCO_2 = create_engine("sqlite:///meubanco.db")
 
 # Criando conexão com banco de dados.
-Session = sessionmaker(bind=MEU_BANCO)
+Session = sessionmaker(bind=BANCO_2)
 session = Session()
 
 # Criando tabela 
@@ -30,7 +32,7 @@ class Cliente(Base):
         self.senha = senha  
 
 # Criando tabela no banco de Dados 
-Base.metadata.create_all(bind=MEU_BANCO)
+Base.metadata.create_all(bind=BANCO_2)
 
 def clear_console():
     os.system("cls||clear")
