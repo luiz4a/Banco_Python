@@ -14,7 +14,7 @@ session = Session()
 # Criando tabela 
 Base = declarative_base()
 
-class Cliente(Base):
+class Aluno(Base):
     __tablename__ = "clientes"
 
     id = Column("Id", Integer, primary_key=True, autoincrement=True)
@@ -44,26 +44,26 @@ def solicitar_dados_cliente():
     sobrenome = input("Digite seu sobrenome: ")
     email = input("Digite seu e-mail: ")
     senha = input("Digite sua senha: ")
-    return Cliente(r_a = r_a ,nome=nome, sobrenome = sobrenome,  email=email, senha=senha)
+    return Aluno(r_a = r_a ,nome=nome, sobrenome = sobrenome,  email=email, senha=senha)
 
 def exibir_clientes():
     print("\nExibindo dados de todos os clientes na tabela")
-    lista_clientes = session.query(Cliente).all()
+    lista_clientes = session.query(Aluno).all()
     for cliente in lista_clientes:
         print(f"{cliente.id} -{cliente.r_a} - {cliente.nome}- {cliente.sobrenome} - {cliente.email} - {cliente.senha}")
 
 def atualizar_cliente(email_cliente):
-    cliente = session.query(Cliente).filter_by(email=email_cliente).first()
+    cliente = session.query(Aluno).filter_by(email=email_cliente).first()
     if cliente:
         cliente.nome = input("Digite seu nome: ")
         cliente.email = input("Digite seu e-mail: ")
         cliente.senha = input("Digite sua senha: ")
         session.commit()
     else:
-        print("Cliente não encontrado.")
+        print("Aluno não encontrado.")
 
 def excluir_cliente(email_cliente):
-    cliente = session.query(Cliente).filter_by(email=email_cliente).first()
+    cliente = session.query(Aluno).filter_by(email=email_cliente).first()
     if cliente:
         session.delete(cliente)
         session.commit()
@@ -72,11 +72,11 @@ def excluir_cliente(email_cliente):
         print("Cliente não encontrado.")
 
 def consultar_cliente(email_cliente):
-    cliente = session.query(Cliente).filter_by(email=email_cliente).first()
+    cliente = session.query(Aluno).filter_by(email=email_cliente).first()
     if cliente:
         print(f"{cliente.id} -{cliente.r_a} - {cliente.nome}- {cliente.sobrenome} - {cliente.email} - {cliente.senha}")
     else:
-        print("Cliente não encontrado!")
+        print("Aluno não encontrado!")
 
 def main():
     clear_console()
