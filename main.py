@@ -56,7 +56,7 @@ for cliente in lista_clientes:
 
 #U - Update - UPDATE - Atualizar
 print("\n Atualizando dados do usuario.")
-email_cliente = input ("Diogite o email do cliente que sera atualzado: ")
+email_cliente = input ("Digite o email do cliente que sera atualizado: ")
 
 cliente =session.query(Cliente).filter_by(email= email_cliente).first()
 
